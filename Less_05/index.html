@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Less_05</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page"></div>
+
+    <script src="data.js"></script>
+    <script>
+        const page = document.querySelector('.page');
+        
+        const productContent = document.createElement('div');
+        productContent.classList.add('product__content');
+        page.appendChild(productContent);
+
+        fetch(dataAPI)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json);
+                json.forEach(element => {
+                    const productItem = document.createElement('div');
+                    productItem.classList.add('product__item');
+
+                    const productName = document.createElement('h1');
+                    productName.classList.add('product__name');
+                    productName.textContent = element.name;
+                    productItem.appendChild(productName);
+
+                    const productCountry = document.createElement('p');
+                    productCountry.classList.add('product__country');
+                    productCountry.textContent = element.country;
+                    productItem.appendChild(productCountry);
+
+                    const productModels = document.createElement('select');
+                    productModels.classList.add('product__models');
+                    element.models.forEach(element => {
+                        const productModel = document.createElement('option');
+                        productModel.textContent = element.name;
+                        productModels.appendChild(productModel);
+                    });
+
+                    productItem.appendChild(productModels);
+
+                    productContent.appendChild(productItem);
+
+                });
+            });
+        
+        
+    </script>
+</body>
+</html>
