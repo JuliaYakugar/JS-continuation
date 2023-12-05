@@ -1,0 +1,1 @@
+const dataAPI = `https://cars-base.ru/api/cars?full=1`;
