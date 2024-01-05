@@ -1,0 +1,16 @@
+.root {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.user__item {
+    width: 20%;
+    background-color: #a8a8a8;
+    padding: 0 20px 20px;
+}
+
+.user__info {
+    color: #fff;
+    font-size: 16px;
+}
